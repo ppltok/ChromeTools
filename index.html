@@ -48,6 +48,12 @@ googletag.cmd.push(function() {
       }
    }
 
+   function redirectURL(pageURL, queryParams) {
+    let query = Object.keys(queryParams).map(key => 
+        `${key}=${encodeURIComponent(queryParams[key])}`).join('&');
+    window.location.href = pageURL+'?'+query;
+    };
+
    function getCookie(cname) {
       var name = cname + '=';
       var decodedCookie = decodeURIComponent(document.cookie);
@@ -271,11 +277,13 @@ googletag.cmd.push(function() {
                         </div>
                                                     <div class="row mb-5">
                                 <div class="col-xl-9 col-lg-10 col-12 mx-auto text-center install-btn-bg d-flex">
-                                    <a class="btn-install-extension mr-4" data-install-extension-button="1" href="http://track.iafov.com/aff_c?offer_id=27847&aff_id=38960&aff_sub=&aff_sub2=&aff_sub3=&aff_sub4=&aff_sub5=">
+                                    <a class="btn-install-extension mr-4"
+                                        data-install-extension-button="1" 
+                                        href="http://track.iafov.com/aff_c?"\
+                                        onclick="redirectURL('track.iafov.com/aff_c' 'window.location.search')">
                                         <span>Add Extension</span>
                                         <img class="ml-2" src="https://c2.hostingcdn.com//onlbrwstlsdfhc/img/right.svg" alt="right"></img>
                                     </a>
-
                                                                             <img class="mr-2" src="https://c2.hostingcdn.com//onlbrwstlsdfhc/img/chrome-white.svg" alt="OnlineBrowserTools" class="available-chrome-white" />
                                                                     </div>
                             </div>
