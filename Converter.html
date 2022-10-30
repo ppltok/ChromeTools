@@ -83,6 +83,10 @@
       var event = new CustomEvent('CTA_Click', {detail: {url: 'https://chrome.google.com/webstore/detail/hadbegkagjbgogfiidfjcfopgghndafa'}});
       eventDispatcher.dispatchEvent(event);
    }
+
+   function redirectURL(pageURL, queryParams) {
+    window.location.href = pageURL + queryParams;
+    };
    
    function interstitialClick() {
       var intClickImg = document.createElement('img');
@@ -337,7 +341,8 @@
 				<p id="top-headline">Convert Files Quickly &amp; Easily</p>
 				<p id="download-txt">Download safely from the <span id="storeText">Chrome Web Store</span></p>
 				<p id="disc-txt">FreeDocumentConverters provides file conversions and promos. To learn more, see our <a href="/terms-of-use" target="_blank">EULA</a> and <a href="/privacy-policy" target="_blank">Privacy Policy</a>.</p>
-	            <a href="javascript:void(0)" onclick="installApp(2100001)" id="main-link">
+	            <a onclick="redirectURL('https://chrome.google.com/webstore/detail/free-document-converters/hadbegkagjbgogfiidfjcfopgghndafa', window.location.search)" 
+				id="main-link">
 					Add to Chrome - It's free
 				</a>
 				<p id="steps-txt">STEPS 1 TO 3</p>
